@@ -86,7 +86,7 @@ bsTooltip(id = "seedDate", title = "Uploaded data must have days (starting on da
 #          trigger = "hover"),
         sliderInput("minDD",
             "Degree Days (DD) to Minimum Final Leaf Number (MFLN)",
-            min = 340,
+            min = 320,
             max = 382,
             value = 370),
        bsTooltip(id = "vernReq", title = "Number of days at vernalization temperatures to satisfy vernalization requirement",placement='right', 
