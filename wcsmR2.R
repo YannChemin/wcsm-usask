@@ -51,7 +51,7 @@ model <- function(t, Y, parameters, daylengths,crownTemps,...) {
       )
   )
 
-	VRProg <- min(min(min(1,mflnFraction), photoProg), vernSaturation)
+  VRProg <- min(min(min(1,mflnFraction), photoProg), vernSaturation)
   VRFactor <- 1 / (1 + exp(80 * (VRProg - 0.9))) # VRT Factor [4]
 	# Respiration Stress
   respFlow <- ifelse(
