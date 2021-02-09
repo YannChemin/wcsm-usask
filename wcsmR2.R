@@ -58,7 +58,7 @@ model <- function(t, Y, parameters, daylengths,crownTemps,...) {
     fiveDayTempMean < 1.5 & fiveDayTempMean > -1 & fiveDayTempSD < 0.75,
     0.54 * (exp(0.84 + 0.051 * crownTemp) - 2) / 1.85, 0 # Formula [11]
   )
-	# Dehardening
+# Dehardening
   dehardRate <- 5.05 / (1 + exp(4.35 - 0.28 * min(crownTemp, thresholdTemp))) # Formula [10]
   dehardFlow <- ifelse(
     respFlow > 0, 0, ifelse(
@@ -67,19 +67,19 @@ model <- function(t, Y, parameters, daylengths,crownTemps,...) {
       )
     )
   )
-  # Low Temperature Stress
+# Low Temperature Stress
   LTStressFlow <-  ifelse(
     (LT50 < crownTemp) & ((minLT50 / 2) > crownTemp) &
       (LT50 - dehardAmtStress < initLT50) & (crownTemp < initLT50),
       abs((minLT50 - crownTemp) / exp(-0.654 * (minLT50 - crownTemp) - 3.74)),0 # Formula [12]
   )
-	# Photoperiod Requirements	
+# Photoperiod Requirements	
   photoFactor <- ifelse(
     crownTemp > 0 & respFlow == 0, abs((3.5 / (1 + exp(0.504 * (daylength - photoCritical) - 0.321 * (crownTemp - 13.242)))) - 3.5), 0 # Formula [8]
   )
   photoFlow <- photoFactor / (3.25 * photoCoeff)
 #  photoFlow <- photoFactor / (140 * photoCoeff)
-  # Threshold Induction Temperatures and Acclimation
+# Threshold Induction Temperatures and Acclimation
   accRate <- max(0, 0.014*(thresholdTemp - crownTemp) * (LT50 - LT50DamageAdj)) # Formula [2]
   accFlow <- ifelse(
     respFlow > 0,0,
