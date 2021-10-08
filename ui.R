@@ -131,7 +131,7 @@ bsTooltip(id = "seedDate", title = "Uploaded data must have days (starting on da
       div(h4('Geographic Location')),
       div(p('Click on the map to select latitude and longitude to run simulation at. Locations can be searched by name using the magnifying glass icon.')),
       leafletOutput('map'),
-      p('Read the paper ',a(href="./www/cs-54-6-2395.pdf",target="_blank","here")),
+      p('Read the paper describing the interactive model design ',a(href="https://acsess.onlinelibrary.wiley.com/doi/pdf/10.1002/csc2.20246","here")),
       p('This interactive model is based on earlier work described in a 2014 paper. For more details on the logic behind model construction, see ',a(href="https://acsess.onlinelibrary.wiley.com/doi/pdf/10.2135/cropsci2014.03.0196","here")),
       p('Contact the authors: ',a(href='mailto:brian.fowler@usask.ca','Dr. Brian Fowler'),',',a(href='mailto:brookb@gmail.com','Brook Byrns'),', Dept Plant Sciences, University of Saskatchewan')
       
