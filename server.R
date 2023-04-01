@@ -336,10 +336,31 @@ shinyServer(function(input,output,session) {
     # entire map is being torn down and recreated).
     req(input$lon) & req(input$lat)
     leaflet() %>%
-    addProviderTiles(providers$Stamen.Terrain,
-                     options = providerTileOptions(noWrap = TRUE)
-    ) %>% setView(lng = input$lon,lat=input$lat,zoom = 4) %>% addMarkers(lng=input$lon,lat=input$lat) %>%
-      addSearchOSM()
+    addProviderTiles(providers$Esri.WorldImagery,
+                    options = providerTileOptions(noWrap = TRUE) 
+    ) %>%
+    # THIS WMS DOES NOT WORK
+    #addWMSTiles(
+    #  "https://viewer.globalland.vgt.vito.be/geoserver/ows",
+    #  layers = "CGS_S2_10M_BANDS",
+    #  options = WMSTileOptions(format = "image/png", transparent = TRUE),
+    #  attribution = "ESA @ 2021"
+    #) %>%
+    # THIS WMS WORKS
+    #addWMSTiles(
+    #  "https://services.terrascope.be/wms/v2",
+    #  layers = "WORLDCOVER_2021_MAP",
+    #  options = WMSTileOptions(format = "image/png", transparent = TRUE),
+    #  attribution = "ESA @ 2021"
+    #) %>%
+    addProviderTiles(providers$Stamen.TonerLines,
+                    options = providerTileOptions(opacity = 0.35)) %>%
+    addProviderTiles(providers$Stamen.TonerLabels) %>%
+    #addProviderTiles(providers$Stamen.Terrain,
+    #                options = providerTileOptions(noWrap = TRUE)
+    setView(lng = input$lon, lat=input$lat, zoom = 12) %>% 
+    addMarkers(lng=input$lon,lat=input$lat) %>%
+    addSearchOSM()
   })
   observe({
     click <- input$map_click

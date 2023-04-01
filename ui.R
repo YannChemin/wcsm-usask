@@ -45,24 +45,21 @@ shinyUI(fluidPage(useShinyjs(),theme=shinytheme('paper'),
        dateInput('seedDate','Seed Date'),
 bsTooltip(id = "seedDate", title = "Uploaded data must have days (starting on day 1) in the first column,  format: 'YYYY-MM-DD', eg. '2017-09-01'",placement='right', 
           trigger = "hover"),
-       selectInput('dataSet',label='Historical Temperature Data',multiple=FALSE,selected = 'Alameda_2013.csv',
+       selectInput('dataSet',label='Historical Temperature Data',multiple=FALSE,selected = 'Kromeriz_2017.csv',
                    choices=list(
                     'Custom'=list('Custom'='Custom'),
+                    'Europe'=list('Kromeriz, Czech Republic 2017'='Kromeriz_2017.csv',
+                                  'Prague, Czech Republic 1990'='Prague_1990.csv',
+                                  'Oppdal, Norway 2004'='Oppdal_2004.csv'
+                                  ),
+                    'Asia'=list('Maragheh, Iran 2003'='Maragheh_2003.csv'),
                     'North America'=list('Alameda, Saskatchewan 2013'='Alameda_2013.csv',
                                          'Radville, Saskatchewan 2009'='Radville_2009.csv',
                                          'Saskatoon, Saskatchewan 1995'='Saskatoon_1995.csv',
                                          'Saskatoon, Saskatchewan 2001'='Saskatoon_2001.csv',
                                          'Saskatoon, Saskatchewan 2002'='Saskatoon_2002.csv',
                                          'Saskatoon, Saskatchewan 2004'='Saskatoon_2004.csv',
-                                         'Sherwood, North Dakota 2011'='Sherwood_2011.csv'),
-                    'Europe'=list('Kromeriz, Czech Republic 2017'='Kromeriz_2017.csv',
-                                  'Prague, Czech Republic 1990'='Prague_1990.csv',
-                                  'Oppdal, Norway 2004'='Oppdal_2004.csv'
-                                  ),
-                    'Asia'=list('Maragheh, Iran 2003'='Maragheh_2003.csv')
-                    
-                    
-
+                                         'Sherwood, North Dakota 2011'='Sherwood_2011.csv')
                    )),
 #      uiOutput(outputId='lat'),
 #      uiOutput(outputId='lon'),
