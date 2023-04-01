@@ -213,7 +213,7 @@ shinyServer(function(input,output,session) {
       plot.title = element_text(size=16,face='bold'),
       legend.position='bottom',
       legend.text = element_text(size=16),
-      panel.border = element_rect(colour = "grey", fill=NA, size=2),
+      panel.border = element_rect(colour = "grey", fill=NA, linewidth=2),
       plot.background = element_rect(fill = "transparent",colour = NA)) + 
     ggtitle(val$plotTitle)
     p
